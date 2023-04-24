@@ -115,9 +115,11 @@ python manage.py startapp order # 订单模块
     AUTH_USER_MODEL='user.User'
 #### 7.富文本编辑器的安装
 **·** 安装
+
     pip install django-tinymce
 **·** 注册
 **·** settings.py添加配置项
+
     # 富文本编辑器的配置
     TINYMCE_DEFAULT_CONFIG = {
         'theme': 'advanced',

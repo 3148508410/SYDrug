@@ -1,11 +1,11 @@
-# SYDrug
+## SYDrug
 Django-Pharmaceutical sales mall
 心如潭水静无风邀请您进行远程控制
 ToDesk设备代码:261 157 441（该用户已设置禁止临时密码连接）
 
-# 一、项目搭建
-### 1.创建项目及app
-· 创建项目
+## 一、项目搭建
+#### 1.创建项目及app
+**·** 创建项目
 python manage.py startproject SYDrug
 # 创建app
 python manage.py startapp user # 用户模块

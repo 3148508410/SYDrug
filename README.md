@@ -675,6 +675,7 @@ python manage.py startapp order # 订单模块
         cart_count = conn.hlen(cart_key)
                 
 **·** base.html中做如下修改，仅加一条模板语法即可
+                
     <div class="guest_cart fr">
         <a href="#" class="cart_name fl">我的购物车</a>
         <div class="goods_count fl" id="show_count">{{ cart_count }}</div>

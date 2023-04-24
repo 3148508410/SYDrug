@@ -748,10 +748,14 @@ python manage.py startapp order # 订单模块
 
 
 **4** 复制whoosh_backend.py文件，改为如下名称。
+
     whoosh_cn_backend.py
+    
 **5** 打开复制出来的新文件，引入中文分析类，内部采用jieba分词。
     from .ChineseAnalyzer import ChineseAnalyzer
+    
 **·** 更改词语分析类。
+
     # 查找
         analyzer=StemmingAnalyzer()
     # 改为

@@ -480,7 +480,7 @@ python manage.py startapp order # 订单模块
     fdfs_upload_file /etc/fdfs/client.conf 要上传的图片文件  
     如果返回类似group1/M00/00/00/rBIK6VcaP0aARXXvAAHrUgHEviQ394.jpg的文件id则说明文件上传成功
 **2** 安装Nginx
-                、
+                
     1.Ubuntu安装前必备的依赖
         sudo apt-get install libpcre3 libpcre3-dev
         sudo apt-get install zlib1g-dev

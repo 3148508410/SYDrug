@@ -243,6 +243,7 @@ python manage.py startapp order # 订单模块
     
     
 **·** settings.py中实现
+                
     # 邮件发送的配置
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # 指定邮件后端
     EMAIL_HOST = 'smtp.qq.com'
@@ -296,6 +297,7 @@ python manage.py startapp order # 订单模块
         url(r'^login$', LoginView.as_view(), name='login'),  # 登录
     ]
 **10** 用户激活生成token
+                
      # 加密用户身份信息，生成激活token
             header = {'alg': 'HS256'}  # 签名算法
             key = settings.SECRET_KEY  # 用于签名的密钥
@@ -314,6 +316,7 @@ python manage.py startapp order # 订单模块
                 user = User.objects.get(id=user_id)
                 user.is_active = 1
                 user.save()
+                
 **11** 注册交给Celery进行处理
 **·** celery_tasks/tasks.py
     # 使用celery

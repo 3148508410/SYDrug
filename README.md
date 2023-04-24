@@ -563,6 +563,7 @@ python manage.py startapp order # 订单模块
 
 #### 3.代码部分
 **1**  编写utils/fdfs/storage.py类
+                
     from django.core.files.storage import Storage
     from django.conf import settings
     from fdfs_client.client import Fdfs_client, get_tracker_conf
@@ -661,6 +662,7 @@ python manage.py startapp order # 订单模块
     HLEN cart_2
 
 **·** goods/views.py中添加如下代码：
+                
     # 获取用户购物车中商品数目
     user = request.user
     cart_count = 0

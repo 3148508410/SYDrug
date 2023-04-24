@@ -179,13 +179,17 @@ python manage.py startapp order # 订单模块
         url(r'^login$', LoginView.as_view(), name='login'),  # 登录
     ]
 **6** 注册过程进行数据校验
+                
 **·** 接收数据
+                
     username = request.POST.get('user_name')
     password = request.POST.get('pwd')
     confirm_password = request.POST.get('cpwd')
     email = request.POST.get('email')
     allow = request.POST.get('allow')
+                
 **·** 进行数据校验
+                
     if not all([username, password, email]):
     # 数据不完整
         return render(request, 'register.html', {'errmsg': '数据不完整！'})
@@ -200,7 +204,7 @@ python manage.py startapp order # 订单模块
     if allow != 'on':
         return render(request, 'register.html', {'errmsg': '请勾选用户协议！'})
 
-    # 注册前检查用户名是否已经存在
+    # 注册前检查用户名是否已经存在      
     try:
         user = User.objects.get(username=username)
     except User.DoesNotExist:
@@ -211,6 +215,7 @@ python manage.py startapp order # 订单模块
         return render(request, 'register.html', {'errmsg': '用户名已存在'})
         
 **7** 注册过程中的业务处理
+                
     # /user/views.py
     # 进行业务处理、用户注册
             user = User.objects.create_user(username, password, email)

@@ -842,7 +842,9 @@ python manage.py startapp order # 订单模块
 **2** 更新后台数据库数据，图表会自动更新
     update df_goods_sku set sales=500 where name='布洛芬缓释胶囊';
 #### N、报错及解决：
+           
 **1** Ubuntu安装mysqlclient失败：
+           
     https://blog.csdn.net/panzer9/article/details/52870701/
     # 安装缺失的库
         sudo apt-get install libmysqlclient-dev
@@ -853,6 +855,7 @@ python manage.py startapp order # 订单模块
         sudo apt install libmysqlclient21
 
 **2** redis配置(ubuntu)：
+           
     1. 首先进入redis配置文件（sudo vi /etc/redis/redis.conf）,ip地址通过ifconfig查看
         注释原有bind，新加如下：
             # bind 127.0.0.1 ::1
@@ -866,7 +869,9 @@ python manage.py startapp order # 订单模块
 
     # 服务器打开6379端口
     sudo ufw allow 6379
+           
 **3** Nginx安装过程中出现make错误一
+           
     1.执行make时候出现错误，例如：
         ^~~~
         cc1: all warnings being treated as errors
@@ -878,7 +883,9 @@ python manage.py startapp order # 订单模块
             是将警告当成了错误处理，打开 nginx的安装目录/objs/Makefile，去掉CFLAGS中的-Werror，再重新make。
         -Wall 表示打开gcc的所有警告  
         -Werror，它要求gcc将所有的警告当成错误进行处理
+           
 **4** Nginx安装过程中出现make错误二
+           
     src/os/unix/ngx_user.c: In function ‘ngx_libc_crypt’:
     src/os/unix/ngx_user.c:36:7: error: ‘struct crypt_data’ has no member named ‘current_salt’
     cd.current_salt[0] = ~salt[0];
@@ -893,19 +900,26 @@ python manage.py startapp order # 订单模块
     # vim src/os/unix/ngx_user.c进入里面注释掉36行：
 
     /* cd.current_salt[0] = ~salt[0];*/
+           
 **5** Nginx+FastDFS访问文件没有权限/404错误
+           
     在已备份的nginx.conf文件第一行指定用户名即可
         user root;
     以下内容也操作过，不知道对不对
         对storage的存储文件夹执行755权限，原来是700
+           
 **6** 模板中传递{{sku.count}}的时候，前端显示类型为字节类型 b'2'
+           
     在Django模板中，使用|int进行类型转换是可行的，但是需要确认使用的Django版本是否支持该过滤器。在Django 3.1及以下版本中，int过滤器是不存在的，因此在模板中使用|int会导致模板语法错误。如果你的Django版本较旧，可以尝试使用|floatformat过滤器进行类型转换，例如：
     arduinoCopy code
     {{ sku.count|default:"0"|floatformat }}
     在这个示例中，使用floatformat过滤器将变量转换为浮点数类型。如果你的变量本身就是整数类型，那么使用该过滤器进行类型转换也是可行的。如果你的Django版本支持int过滤器，也可以使用|int进行类型转换。
+           
 **7** 并发问题
+           
     目前未在windows数据库中开启事务的隔离级别（读-已提交）：
         mysql的 traceaction-isolatio设置为：READ-COMMITED
+           
 **8** 订单创建数据表出现问题，重新执行下面代码段
            
     DROP TABLE IF EXISTS `df_order_info`;
@@ -950,8 +964,10 @@ python manage.py startapp order # 订单模块
 
 
 #### M、项目启动流程
+           
 **1** 创建虚拟环境
 **·** windows下进入项目根目录
+           
     # 创建虚拟环境
         python -m venv venv
     # 进入虚拟环境
@@ -960,19 +976,24 @@ python manage.py startapp order # 订单模块
         pip install -r requirements
 
 **·** Linux下
+           
     # 创建虚拟环境
         python3 -m venv sy_env
     # 进入虚拟环境
         source ./sy_env/bin/activate
     # 安装项目包
         pip install -r requirements
+           
 **2** 配置数据库文件
+           
     # 创建数据库(sql下执行)：
         create database SYDrug charset=utf8;
     # 生成数据表及迁移文件(项目根目录）
         python manange.py makemigrations
         python manage.py migrate
+           
 **3** 启动Celery及项目
+           
     # 启动redis
         sudo service redis-server start
     # 查看是否启动成功
@@ -988,6 +1009,7 @@ python manage.py startapp order # 订单模块
 
     # 本机启动项目：
         python manage.py runserver
+           
 #### Q、项目最新代码
     Github:
     ## Github链接

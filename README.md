@@ -787,6 +787,7 @@ python manage.py startapp order # 订单模块
 **6** 修改settings.py文件中的配置项。
            
 **·** 全文检索框架的配置
+           
     HAYSTACK_CONNECTIONS = {
         'default': {
             # 使用whoosh引擎

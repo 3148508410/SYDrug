@@ -434,6 +434,7 @@ python manage.py startapp order # 订单模块
 **·** 文件：
 **·** 暂时无法在飞书文档外展示此内容
 **1** 安装Fastdfs
+                
     # 一、安装fastdfs依赖包
     1. 解压缩libfastcommon-master.zip
     2. 进入到libfastcommon-master的目录中
@@ -479,6 +480,7 @@ python manage.py startapp order # 订单模块
     fdfs_upload_file /etc/fdfs/client.conf 要上传的图片文件  
     如果返回类似group1/M00/00/00/rBIK6VcaP0aARXXvAAHrUgHEviQ394.jpg的文件id则说明文件上传成功
 **2** 安装Nginx
+                、
     1.Ubuntu安装前必备的依赖
         sudo apt-get install libpcre3 libpcre3-dev
         sudo apt-get install zlib1g-dev
@@ -905,6 +907,7 @@ python manage.py startapp order # 订单模块
     目前未在windows数据库中开启事务的隔离级别（读-已提交）：
         mysql的 traceaction-isolatio设置为：READ-COMMITED
 **8** 订单创建数据表出现问题，重新执行下面代码段
+           
     DROP TABLE IF EXISTS `df_order_info`;
     CREATE TABLE `df_order_info` (
       `create_time` datetime(6) NULL DEFAULT NULL,

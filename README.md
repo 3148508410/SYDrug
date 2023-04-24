@@ -679,6 +679,7 @@ python manage.py startapp order # 订单模块
     </div>
 ## 八、全局检索
 **1** 安装django-heystack
+                
     # 在虚拟环境内安装
         pip install django-heystack
         pip install whoosh
@@ -780,6 +781,7 @@ python manage.py startapp order # 订单模块
     #改为
         analyzer=ChineseAnalyzer()
 **6** 修改settings.py文件中的配置项。
+           
 **·** 全文检索框架的配置
     HAYSTACK_CONNECTIONS = {
         'default': {
@@ -799,9 +801,10 @@ python manage.py startapp order # 订单模块
 
 
 #### 九、pyecharts绘图
+           
 **1** 首先采用饼状图测试，如下以pymysql为例进行测试，后续通过django orm模型实现
 **·** 创建新app应用 charts，图表url配置为:chats/chat
-**·** ettings.py文件中配置后台菜单
+**·** settings.py文件中配置后台菜单
   
     import pymysql
     from pyecharts import options as opts

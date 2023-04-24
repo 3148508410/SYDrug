@@ -689,6 +689,7 @@ python manage.py startapp order # 订单模块
     创建如下目录结构和文件：
     [图片]
 **·** 创建search.html文件
+                
     {% extends 'base_detal_list.html' %}
     {% block title %}天天生鲜-商品搜索结果列表{% endblock title %}
     {% block main_content %}
@@ -730,6 +731,7 @@ python manage.py startapp order # 订单模块
        </div>
     {% endblock main_content %}
 **·** 生成索引文件：位置在项目根目录下的文件夹内：whoosh_index
+           
     (win_env) PS C:\Users\chenglong\Desktop\SYDrug> python .\manage.py rebuild_index
 
 **3** 修改分词方式
